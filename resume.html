@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Editable Resume</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+  <div class="main">
+    <div class="top-section">
+        <img src="image/profile.jpg" class="profile" id="profile-image" onclick="uploadProfileImage()" />
+        <input type="file" id="profile-image-input" style="display: none" accept="image/*" />
+      <p class="p1" id="full-name" contenteditable="true" onclick="enableEditing('full-name')">FIRSTNAME <span>LASTNAME</span></p>
+      <p class="p2" id="tagline" contenteditable="true" onclick="enableEditing('tagline')">UI / UX Designer</p>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="col-div-4">
+      <div class="content-box" style="padding-left: 40px;">
+        <p class="head">Contact</p>
+        <p class="p3" id="phone" contenteditable="true" onclick="enableEditing('phone')"><i class="fa fa-phone" aria-hidden="true"></i> &nbsp;&nbsp;898392888</p>
+        <p class="p3" id="email" contenteditable="true" onclick="enableEditing('email')"><i class="fa fa-envelope" aria-hidden="true"></i> &nbsp;&nbsp;dummymail.com</p>
+        <p class="p3" id="address" contenteditable="true" onclick="enableEditing('address')"><i class="fa fa-home" aria-hidden="true"></i> &nbsp;&nbsp;United Kingdom</p>
+
+        <br/>
+        <p class="head">My Skills</p>
+        <ul class="skills" id="skills" contenteditable="true" onclick="enableEditing('skills')">
+          <li><span>Web Design</span></li>
+          <li><span>Graphic Design</span></li>
+          <li><span>HTML-5</span></li>
+          <li><span>CSS-3</span></li>
+          <li><span>JavaScript</span></li>
+          <li><span>jQuery</span></li>
+        </ul>
+
+        <br/>
+        <p class="head">Certifications</p>
+        <p class="p3" id="certification1" contenteditable="true" onclick="enableEditing('certification1')">CSS Design Awards</p>
+        <p class="p3" id="certification2" contenteditable="true" onclick="enableEditing('certification2')">D&AD Awards</p>
+        <p class="p3" id="certification3" contenteditable="true" onclick="enableEditing('certification3')">CSS Winner Awards</p>
+        <p class="p3" id="certification4" contenteditable="true" onclick="enableEditing('certification4')">The Shorty Awards</p>
+        <p class="p3" id="certification5" contenteditable="true" onclick="enableEditing('certification5')">Awwwards</p>
+
+        <br/>
+        <p class="head">Languages</p>
+        <p class="p3" id="language1" contenteditable="true" onclick="enableEditing('language1')">Hindi</p>
+        <p class="p3" id="language2" contenteditable="true" onclick="enableEditing('language2')">English</p>
+      </div>
+    </div>
+    <div class="line"></div>
+    <div class="col-div-8">
+      <div class="content-box">
+        <p class="head">Profile</p>
+        <p class="p3" style="font-size: 13px;" id="profile-summary" contenteditable="true" onclick="enableEditing('profile-summary')">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+
+        <br/>
+        <p class="head">Projects</p>
+        <p id="project1-title" contenteditable="true" onclick="enableEditing('project1-title')">UI Designer in Lorem Ipsum (2018 - Now)</p>
+        <p class="p-4" id="project1-description" contenteditable="true" onclick="enableEditing('project1-description')">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        <p id="project2-title" contenteditable="true" onclick="enableEditing('project2-title')">UI Designer (2013 - 2015)</p>
+        <p class="p-4" id="project2-description" contenteditable="true" onclick="enableEditing('project2-description')">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+        <p id="project3-title" contenteditable="true" onclick="enableEditing('project3-title')">Graphic Designer (2010)</p>
+        <p class="p-4" id="project3-description" contenteditable="true" onclick="enableEditing('project3-description')">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+
+        <br/>
+
+        <p class="head">Education</p>
+        <p class="p-4" id="education1" contenteditable="true" onclick="enableEditing('education1')">High School of CBSE (2009 - 2010)</p>
+        <p class="p-4" id="education2" contenteditable="true" onclick="enableEditing('education2')">Bachelor of Computer Application (2013 - 2015)</p>
+        <p class="p-4" id="education3" contenteditable="true" onclick="enableEditing('education3')">Master of Computer Application (2015 - 2018)</p>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      justify-content: space-between;
+      margin: 0;
+    }
+  
+    .download-button {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 5px;
+  }
+  
+    .download-button button {
+      background-color: green;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+  
+    .download-button button:hover {
+      background-color: darkgreen;
+    }
+  </style>
+  
+  <div class="download-button">
+    <button onclick="generatePDF()">Download as PDF</button>
+  </div>
+  
+  
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+  <script>
+    function enableEditing(id) {
+      const element = document.getElementById(id);
+      element.contentEditable = true;
+      element.focus();
+      element.style.outline = "none";
+    }
+
+    function uploadProfileImage() {
+      var fileInput = document.getElementById('profile-image-input');
+      fileInput.click();
+
+      fileInput.onchange = function() {
+        var file = fileInput.files[0];
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+          var profileImage = document.getElementById('profile-image');
+          profileImage.src = e.target.result;
+        }
+
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function generatePDF() {
+    const element = document.querySelector(".main");
+
+    // Set the PDF options
+    const options = {
+        margin: [-1, -0.02, 0, 0],
+        filename: "resume.pdf",
+        image: { type: "jpeg", quality: 1 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: "in", format: "a4", orientation: "portrait" }
+    };
+    
+
+    html2pdf()
+        .set(options)
+        .from(element)
+        .save("resume.pdf");
+    }
+  </script>
+</body>
+</html>
