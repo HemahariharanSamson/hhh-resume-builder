@@ -2,14 +2,14 @@
 <html>
 <head>
   <title>Editable Resume</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
 </head>
 <body>
   <div class="main">
     <div class="top-section">
-        <img src="image/profile.jpg" class="profile" id="profile-image" onclick="uploadProfileImage()" />
+        <img src="profile.jpg" class="profile" id="profile-image" onclick="uploadProfileImage()" />
         <input type="file" id="profile-image-input" style="display: none" accept="image/*" />
       <p class="p1" id="full-name" contenteditable="true" onclick="enableEditing('full-name')">FIRSTNAME <span>LASTNAME</span></p>
       <p class="p2" id="tagline" contenteditable="true" onclick="enableEditing('tagline')">UI / UX Designer</p>
